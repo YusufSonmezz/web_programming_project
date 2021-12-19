@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserInfo> SignInManager
+@inject UserManager<UserInfo> UserManager
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -35,6 +40,7 @@
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img width="158" height="40" src="/images/Yusuf Sönmez-logos_white.png" alt="Yusuf Sönmez"></a>
             </div>
             <div class="navbar-collapse collapse">
+
                 <ul class="nav navbar-nav pull-right">
                     <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-controller="About" asp-action="Index">About</a></li>
@@ -46,7 +52,9 @@
                         </ul>
                     </li>
                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
-                    <li><a class="btn" asp-controller="">SIGN IN / SIGN UP</a></li>
+                    <li><a asp-controller="Article" asp-action="Index">Article</a></li>
+
+                    <partial name="_LoginPartial" />
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -155,5 +163,6 @@
     <script src="~/js/headroom.min.js"></script>
     <script src="~/js/jQuery.headroom.min.js"></script>
     <script src="~/js/template.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
