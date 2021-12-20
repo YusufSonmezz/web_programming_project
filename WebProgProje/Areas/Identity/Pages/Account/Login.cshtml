@@ -5,8 +5,6 @@
     ViewData["Title"] = "Log in";
 }
 
-<header id="head" class="secondary"></header>
-
 <div class="row">
     <header class="page-header">
         <h1 class="page-title">&nbsp;&nbsp;Giriş Yap</h1>
@@ -23,6 +21,7 @@
                     <hr>
 
                     <form id="account" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="top-margin">
                             <label asp-for="Input.Email"></label>
                             <input asp-for="Input.Email" class="form-control" />

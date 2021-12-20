@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="/images/gt_favicon.png">
 
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for our template -->
@@ -28,6 +28,11 @@
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body class="home">
@@ -37,7 +42,7 @@
             <div class="navbar-header">
                 <!-- Button for smallest screens -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img width="158" height="40" src="/images/Yusuf Sönmez-logos_white.png" alt="Yusuf Sönmez"></a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img width="158" height="40" src="/images/YusufSönmezAsılLogo.png" alt="Yusuf Sönmez"></a>
             </div>
             <div class="navbar-collapse collapse">
 
@@ -51,6 +56,14 @@
                             <li class="active"><a href="#">Right Sidebar</a></li>
                         </ul>
                     </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+
+                            <li><a asp-controller="Admin" asp-action="Index">Admin</a></li>
+                        }
+                    }
                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
                     <li><a asp-controller="Article" asp-action="Index">Article</a></li>
 
@@ -60,6 +73,8 @@
         </div>
     </div>
     <!-- /.navbar -->
+
+    <header id="head" class="secondary"></header>
 
     @RenderBody()
 
@@ -163,6 +178,7 @@
     <script src="~/js/headroom.min.js"></script>
     <script src="~/js/jQuery.headroom.min.js"></script>
     <script src="~/js/template.js"></script>
+    <script src="~/js/respond.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

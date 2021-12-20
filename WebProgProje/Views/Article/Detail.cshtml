@@ -1,0 +1,77 @@
+﻿@model Article
+
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border-radius: 15px;
+        padding: 10px;
+    }
+</style>
+<style>
+    .radius {
+        margin: auto;
+        border: 2px solid #E5963C;
+        border-radius: 15px;
+        padding: 5px;
+        background-color: #E9B757;
+    }
+</style>
+
+<div class="center">
+    <header>
+        <h3>@Model.Title</h3>
+    </header>
+    <hr />
+    <div class="fa-image">
+        <img src="/images/@Model.Image" alt="Alternate Text" width="%60" height="%45" />
+    </div>
+    <div class="Date" style="margin-top: 25px;">
+        <i class="fa fa-clock-o"></i>
+        @Model.DateOfAdding
+    </div>
+    <div class="Description" style="margin-top: 25px;">
+        <i>@Model.Description</i>
+    </div>
+
+    <div class="Content" style="margin-top: 50px;">
+        @Model.Content
+    </div>
+
+</div>
+
+<div class="center">
+        @foreach (var comment in ViewData["comments"] as IList<Comment>)
+        {
+            <div class="show-comments">
+                <div class="User-info" style="margin-top:30px;">
+                    <i>Düzenleyen Kişi: @comment.UserName</i>
+                    <br />
+                    <i>Düzenlendiği Tarih: @comment.DateOfCommenting</i>
+                </div>
+                <div class="radius" style="margin-top:10px;">
+                    <p style="padding:5px;">
+                        @comment.Content
+                    </p>
+                </div>
+            </div>
+        }
+
+</div>
+
+
+
+<div class="center comment">
+    <form asp-controller="Article" asp-action="Comment" method="post">
+        <div>
+            <label for="Comment" name="Comment"></label>
+            <br />
+            <textarea for="Comment" name="Comment" class="form-control" rows="4" cols="100"></textarea>
+            <input type="hidden" name="id" value="@Model.ArticleId" />
+        </div>
+        <div>
+            <br />
+            <button class="btn btn-primary" type="submit">Yorum Yap</button>
+        </div>
+    </form>
+</div>

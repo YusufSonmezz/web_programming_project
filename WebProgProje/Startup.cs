@@ -39,6 +39,17 @@ namespace WebProgProje
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 3;
+            });
+
+            var connection = @"server=(localdb)\MSSQLLocalDB;database=PaperContext;trusted_connection=true;";
+            services.AddDbContext<PaperContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

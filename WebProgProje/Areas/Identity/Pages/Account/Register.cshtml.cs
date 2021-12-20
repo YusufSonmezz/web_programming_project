@@ -68,6 +68,7 @@ namespace WebProgProje.Areas.Identity.Pages.Account
 
             [DataType(DataType.Password)]
             [Display(Name = "Şifre Doğrula *")]
+            [StringLength(6, ErrorMessage = "Şifre 3-6 karakter içermelidir", MinimumLength = 3)]
             [Compare("Password", ErrorMessage = "Girilen iki şifre birbiriyle eşleşmiyor")]
             public string ConfirmPassword { get; set; }
         }
@@ -92,7 +93,7 @@ namespace WebProgProje.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
+                    /*
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -103,10 +104,10 @@ namespace WebProgProje.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                    */
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return RedirectToPage("Yeniden Giriş yapınız");
                     }
                     else
                     {

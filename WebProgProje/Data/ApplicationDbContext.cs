@@ -9,9 +9,11 @@ namespace WebProgProje.Data
 {
     public class ApplicationDbContext : IdentityDbContext<UserInfo>
     {
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
     }
 }
