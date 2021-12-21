@@ -10,6 +10,7 @@ namespace WebProgProje.Models
     {
         public DbSet<Article> Articles { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         public PaperContext(DbContextOptions<PaperContext> options) : base(options)
         {

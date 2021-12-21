@@ -2,6 +2,8 @@
     ViewData["Title"] = "İletişim";
 }
 
+@model Contact
+
 
 <!-- container -->
 <div class="container">
@@ -16,38 +18,35 @@
         <!-- Article main content -->
         <article class="col-sm-9 maincontent">
             <header class="page-header">
-                <h1 class="page-title">Contact us</h1>
+                <h1 class="page-title">Bana Mesaj Gönder</h1>
             </header>
 
             <p>
-                We’d love to hear from you. Interested in working together? Fill out the form below with some info about your project and I will get back to you as soon as I can. Please allow a couple days for me to respond.
+                Senden düşüncelerini dinlemek harika olur. Birlikte çalışmakla ilgileniyor musun? Eğer cevabın evetse aşağıdaki formu doldur ve bana fikirlerinden bahset. Sana en kısa sürede dönüş yapacağım. :)
             </p>
             <br>
-            <form>
+            <form asp-controller="Contact" asp-action="AddContact" method="post">
                 <div class="row">
                     <div class="col-sm-4">
-                        <input class="form-control" type="text" placeholder="Name">
+                        <input asp-for="Name" class="form-control"placeholder="Name">
                     </div>
                     <div class="col-sm-4">
-                        <input class="form-control" type="text" placeholder="Email">
+                        <input asp-for="Email" class="form-control" type="text" placeholder="Email">
                     </div>
                     <div class="col-sm-4">
-                        <input class="form-control" type="text" placeholder="Phone">
+                        <input asp-for="Phone" class="form-control" type="text" placeholder="Phone">
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-sm-12">
-                        <textarea placeholder="Type your message here..." class="form-control" rows="9"></textarea>
+                        <textarea asp-for="Content" placeholder="Type your message here..." class="form-control" rows="9"></textarea>
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <label class="checkbox"><input type="checkbox"> Sign up for newsletter</label>
-                    </div>
                     <div class="col-sm-6 text-right">
-                        <input class="btn btn-action" type="submit" value="Send message">
+                        <input class="btn btn-action" type="submit" value="Mesajı Gönder">
                     </div>
                 </div>
             </form>
@@ -58,13 +57,13 @@
         <aside class="col-sm-3 sidebar sidebar-right">
 
             <div class="widget">
-                <h4>Address</h4>
+                <h4>Adres</h4>
                 <address>
-                    2002 Holcombe Boulevard, Houston, TX 77030, USA
+                    Korucuk Mahallesi, Adapazarı, Sakarya, TR
                 </address>
-                <h4>Phone:</h4>
+                <h4>Telefon:</h4>
                 <address>
-                    (713) 791-1414
+                    (554) 660-3782
                 </address>
             </div>
 
@@ -73,7 +72,3 @@
 
     </div>
 </div>	<!-- /container -->
-
-<section class="container-full top-space">
-    <div id="map"></div>
-</section>

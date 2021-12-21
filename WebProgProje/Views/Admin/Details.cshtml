@@ -4,45 +4,59 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border-radius: 15px;
+        padding: 10px;
+    }
+</style>
 
-<div>
+<h1 class="center">Details</h1>
+
+<div class="center">
     <h4>Article</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
+            <hr />
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
+            <hr />
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Image)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Image)
+            <hr />
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Content)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Content)
+            <hr />
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DateOfAdding)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DateOfAdding)
+            <hr />
         </dd>
     </dl>
 </div>
-<div>
+<div class="center">
     <a asp-action="Edit" asp-route-id="@Model.ArticleId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

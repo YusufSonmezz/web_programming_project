@@ -171,3 +171,5 @@ C:\Users\Yusuf\source\repos\WebProgProje\WebProgProje\obj\Debug\net5.0\Razor\Vie
 C:\Users\Yusuf\source\repos\WebProgProje\WebProgProje\obj\Debug\net5.0\Razor\Views\Admin\Edit.cshtml.g.cs
 C:\Users\Yusuf\source\repos\WebProgProje\WebProgProje\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\Yusuf\source\repos\WebProgProje\WebProgProje\obj\Debug\net5.0\Razor\Views\Article\Detail.cshtml.g.cs
+C:\Users\Yusuf\source\repos\WebProgProje\WebProgProje\obj\Debug\net5.0\Razor\Views\Contact\AddContact.cshtml.g.cs
+C:\Users\Yusuf\source\repos\WebProgProje\WebProgProje\obj\Debug\net5.0\Razor\Views\Admin\GetContactMails.cshtml.g.cs

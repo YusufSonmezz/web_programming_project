@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgProje.Models;
 
 namespace WebProgProje.Migrations
 {
     [DbContext(typeof(PaperContext))]
-    partial class PaperContextModelSnapshot : ModelSnapshot
+    [Migration("20211221214835_PaperContext5")]
+    partial class PaperContext5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

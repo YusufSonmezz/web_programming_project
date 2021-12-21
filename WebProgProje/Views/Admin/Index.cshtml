@@ -6,8 +6,11 @@
 
 <h1>Index</h1>
 
-<p style="margin: 20px;">
-    <button class="btn btn-outline-primary"><a asp-action="Create">Yeni Oluştur</a></button>
+<p style="margin: 20px; margin-left: 80px;">
+    <button class="btn btn-outline-primary"><a asp-action="Create">Yeni Makale Oluştur</a></button>
+</p>
+<p style="margin: 20px; margin-left: 80px;">
+    <button class="btn btn-outline-primary"><a asp-action="GetContactMails">İletişim İletileri Görüntüle</a></button>
 </p>
 <table class="table" style="margin: 20px;">
     <thead>
@@ -49,11 +52,13 @@
                 @Html.DisplayFor(modelItem => item.DateOfAdding)
             </td>
             <td>
-                <button type="button" class="btn btn-success"><a asp-action="Edit" asp-route-id="@item.ArticleId">Edit</a></button>
-                <button type="button" class="btn btn-danger"><a asp-action="Details" asp-route-id="@item.ArticleId">Details</a></button>
-                <button type="button" class="btn btn-warning"><a asp-action="Delete" asp-route-id="@item.ArticleId">Delete</a></button>
-            </td>
-        </tr>
+                <a role="button" class="btn btn-success" asp-action="Edit" asp-route-id="@item.ArticleId">Edit</a>
+                <a role="button" class="btn btn-danger" asp-action="Details" asp-route-id="@item.ArticleId" >Details</a>
+                <a role="button" class="btn btn-warning" asp-action="Delete" asp-route-id="@item.ArticleId" >Delete</a>
+           
+</td>
+
+</tr>
 }
     </tbody>
 </table>

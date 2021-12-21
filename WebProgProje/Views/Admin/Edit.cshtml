@@ -4,12 +4,21 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border-radius: 15px;
+        padding: 10px;
+    }
+</style>
 
-<h4>Article</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<h1 class="center">Edit</h1>
+
+<h4 class="center">Article</h4>
+<hr class="center" />
+<div class="row center">
+    <div class="col-md-8">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ArticleId" />
@@ -45,7 +54,7 @@
     </div>
 </div>
 
-<div>
+<div class="center">
     <a asp-action="Index">Back to List</a>
 </div>
 

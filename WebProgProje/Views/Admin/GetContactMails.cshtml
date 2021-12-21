@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebProgProje.Models.Contact>
+
+@{
+    ViewData["Title"] = "GetContactMails";
+}
+
+<h1>İletiler</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isRead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfComment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isRead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfComment)
+            </td>
+            <td>
+                <a asp-action="IsReadChange" asp-route-id="@item.ContactId">Okundu Olarak İşaretle</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

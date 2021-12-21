@@ -46,6 +46,7 @@ namespace WebProgProje
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredLength = 3;
+                options.Password.RequireLowercase = false;
             });
 
             var connection = @"server=(localdb)\MSSQLLocalDB;database=PaperContext;trusted_connection=true;";

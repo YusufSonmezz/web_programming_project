@@ -71,7 +71,15 @@
         </div>
         <div>
             <br />
-            <button class="btn btn-primary" type="submit">Yorum Yap</button>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button class="btn btn-primary pull-right" type="submit">Yorum Yap</button>
+            }
+            else
+            {
+                <button class="btn btn-danger pull-right" type="button">Giriş Yapmalısın</button>
+            }
+
         </div>
     </form>
 </div>

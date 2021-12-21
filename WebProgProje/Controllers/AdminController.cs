@@ -20,6 +20,28 @@ namespace WebProgProje.Controllers
             _context = context;
         }
 
+        public IActionResult GetContactMails()
+        {
+            List<Contact> contacts = _context.Contacts.ToList();
+
+            List<Contact> contacts_false = (from contact in contacts
+                                 where contact.isRead == false
+                                 select contact).ToList();
+
+            return View(contacts_false);
+        }
+
+        public IActionResult IsReadChange(int ?id)
+        {
+            Contact contact = _context.Contacts.Find(id);
+
+            contact.isRead = true;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("GetContactMails");
+        }
+
         // GET: Admin
         public async Task<IActionResult> Index()
         {

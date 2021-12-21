@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgProje.Models;
 
 namespace WebProgProje.Migrations
 {
     [DbContext(typeof(PaperContext))]
-    partial class PaperContextModelSnapshot : ModelSnapshot
+    [Migration("20211221212741_PaperContext4")]
+    partial class PaperContext4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,10 +85,6 @@ namespace WebProgProje.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("DateOfComment")
                         .HasColumnType("datetime2");
 
@@ -100,9 +98,6 @@ namespace WebProgProje.Migrations
 
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("isRead")
-                        .HasColumnType("bit");
 
                     b.HasKey("ContactId");
 
