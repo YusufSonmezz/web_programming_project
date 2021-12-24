@@ -25,20 +25,17 @@ namespace WebProgProje.Areas.Identity.Pages.Account
         private readonly UserManager<UserInfo> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-        private readonly ApplicationDbContext applicationDbContext;
 
         public RegisterModel(
             UserManager<UserInfo> userManager,
             SignInManager<UserInfo> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,
-            ApplicationDbContext context)
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
-            applicationDbContext = context;
         }
 
         [BindProperty]
