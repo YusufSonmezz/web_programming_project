@@ -7,14 +7,21 @@
         border-radius: 15px;
         padding: 10px;
     }
-</style>
-<style>
     .radius {
         margin: auto;
         border: 2px solid #E5963C;
         border-radius: 15px;
         padding: 5px;
         background-color: #E9B757;
+    }
+
+    p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: larger;
+    }
+
+    p::first-letter {
+            font-size: 150%;
     }
 </style>
 
@@ -35,7 +42,17 @@
     </div>
 
     <div class="Content" style="margin-top: 50px;">
-        @Model.Content
+        @{
+            string description = Model.Content;
+            var seperated_description = description.Split("\n");
+
+            foreach (var parag in seperated_description)
+            {
+                <p>
+                    @parag
+                </p>
+            }
+        }
     </div>
 
 </div>

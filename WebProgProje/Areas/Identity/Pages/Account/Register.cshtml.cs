@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using WebProgProje.Data;
 using WebProgProje.Models;
 
 namespace WebProgProje.Areas.Identity.Pages.Account
@@ -24,17 +25,20 @@ namespace WebProgProje.Areas.Identity.Pages.Account
         private readonly UserManager<UserInfo> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext applicationDbContext;
 
         public RegisterModel(
             UserManager<UserInfo> userManager,
             SignInManager<UserInfo> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            applicationDbContext = context;
         }
 
         [BindProperty]

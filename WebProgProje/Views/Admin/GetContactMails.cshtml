@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.DateOfComment)
             </td>
             <td>
-                <a asp-action="IsReadChange" asp-route-id="@item.ContactId">Okundu Olarak İşaretle</a>
+                <a asp-action="IsReadChange" asp-route-id="@item.ContactId" role="button" class="btn btn-primary">Okundu Olarak İşaretle</a>
             </td>
         </tr>
 }
