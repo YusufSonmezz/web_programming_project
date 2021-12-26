@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebProgProje.Data;
 using WebProgProje.Models;
 
 namespace WebProgProje.Controllers
@@ -11,10 +12,12 @@ namespace WebProgProje.Controllers
     public class ArticleController : Controller
     {
         private readonly PaperContext paperContext;
+        private readonly ApplicationDbContext AppContext;
 
-        public ArticleController(PaperContext context)
+        public ArticleController(PaperContext context, ApplicationDbContext context_2)
         {
             paperContext = context;
+            AppContext = context_2;
         }
 
         public IActionResult Index()
@@ -66,7 +69,8 @@ namespace WebProgProje.Controllers
             comment.ArticleId = id;
             comment.Content = Comment;
             comment.DateOfCommenting = DateTime.Now;
-            comment.UserName = User.Identity.Name;
+            string user_name = AppContext.Users.Where(user => user.Email == User.Identity.Name).Select(user => user.UserFirstName).FirstOrDefault();
+            comment.UserName = user_name + "  (" + User.Identity.Name + ")";
             paperContext.Comments.Add(comment);
             paperContext.SaveChanges();
 

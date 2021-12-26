@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Ana Sayfa - Admin</h1>
 
 <p style="margin: 20px; margin-left: 80px;">
     <a asp-action="Create" role="button" class="btn btn-primary">Yeni Makale Oluştur</a>
@@ -52,9 +52,9 @@
                 @Html.DisplayFor(modelItem => item.DateOfAdding)
             </td>
             <td>
-                <a role="button" class="btn btn-success" asp-action="Edit" asp-route-id="@item.ArticleId">Edit</a>
-                <a role="button" class="btn btn-danger" asp-action="Details" asp-route-id="@item.ArticleId" >Details</a>
-                <a role="button" class="btn btn-warning" asp-action="Delete" asp-route-id="@item.ArticleId" >Delete</a>
+                <a role="button" class="btn btn-success" asp-action="Edit" asp-route-id="@item.ArticleId">Düzenle</a>
+                <a role="button" class="btn btn-danger" asp-action="Details" asp-route-id="@item.ArticleId" >Detay</a>
+                <a role="button" class="btn btn-warning" asp-action="Delete" asp-route-id="@item.ArticleId" >Sil</a>
            
 </td>
 
